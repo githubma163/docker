@@ -14,9 +14,21 @@ Docker是一个开源的应用容器引擎，让开发者可以打包他们的�
 
 3. docker安装
 
-https://www.docker.com/get-started/
-
-安装完成后需要配置阿里云镜像地址,linux上的操作如下
+* 图形化安装https://www.docker.com/get-started/
+* linux命令行安装
+```
+yum install epel-release –y
+yum clean all
+yum list
+yum install docker-io –y
+安装指定版本
+wget https://download.docker.com/linux/centos/7/x86_64/stable/Packages/docker-ce-17.03.2.ce-1.el7.centos.x86_64.rpm
+rpm –ivh docker-ce-17.03.2.ce-1.el7.centos.x86_64.rpm
+systemctl start docker
+docker version
+systemctl start docker
+```
+* 安装完成后需要配置阿里云镜像地址,linux上的操作如下
 ```
 vi /etc/docker/daemon.json
 {
