@@ -77,11 +77,19 @@ docker run -d -p 80:80 --name nginx nginx
 ```
 
 ```
-docker run --name bnc-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql
+docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql
 ```
 
 ```
-docker run -itd --name redis-test -p 6379:6379 redis
+docker run -itd --name redis -p 6379:6379 redis
+```
+
+```
+docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.3.2
+```
+
+```
+docker run -it -d -e ELASTICSEARCH_URL=http://10.41.132.126:9200 -p 5601:5601 --name kibana docker.elastic.co/kibana/kibana:6.3.2
 ```
 
 ```
@@ -92,6 +100,29 @@ hbase shell
 
 7. 服务编排
 * Docker公司Compose + Swarm
+```
+version: '3'
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.3.2
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+  kibana:
+    image: docker.elastic.co/kibana/kibana:6.3.2
+    ports:
+      - "5601:5601"
+```
+
 * Google + RedHat的Kubernetes
 * mesosphere的Mesos + Marathon
 
