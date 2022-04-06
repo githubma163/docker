@@ -100,6 +100,15 @@ hbase shell
 
 7. 服务编排
 * Docker公司Compose + Swarm
+
+docker compose 安装
+```
+curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+
+chmod +x /usr/local/bin/docker-compose
+docker-compose version
+```
+
 ```
 version: '3'
 
