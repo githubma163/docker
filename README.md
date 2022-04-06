@@ -13,7 +13,19 @@ Docker是一个开源的应用容器引擎，让开发者可以打包他们的�
 * 虚拟机体积大，速度慢，docker体积小，速度快
 
 3. docker安装
+
 https://www.docker.com/get-started/
+
+安装完成后需要配置阿里云镜像地址,linux上的操作如下
+```
+vi /etc/docker/daemon.json
+{
+  "registry-mirrors": ["https://****.mirror.aliyuncs.com"]
+}
+
+systemctl restart docker
+docker info
+```
 
 4. docker常用命令
 ```
