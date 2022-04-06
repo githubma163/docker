@@ -52,6 +52,16 @@ docker logout
 
 
 6. 常用docker镜像
+```
+docker run hello-world
+```
+
+```
+docker run -d -p 9000:9000 --restart=always -v /var/run/docker.sock:/var/run/docker.sock --name portainer portainer/portainer
+```
+
+```
+```
 
 7. 服务编排
 * Docker公司Compose + Swarm
