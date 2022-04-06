@@ -73,6 +73,19 @@ docker run -d -p 9000:9000 --restart=always -v /var/run/docker.sock:/var/run/doc
 ```
 
 ```
+docker run -d -p 80:80 --name nginx nginx
+```
+
+```
+docker run --name bnc-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql
+```
+
+```
+docker run -itd --name redis-test -p 6379:6379 redis
+```
+
+```
+
 ```
 
 7. 服务编排
