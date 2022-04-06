@@ -85,7 +85,9 @@ docker run -itd --name redis-test -p 6379:6379 redis
 ```
 
 ```
-
+docker run -d --name hbase -h hbase -p 2181:2181 -p 16000:16000 -p 16010:16010 -p 16020:16020 harisekhon/hbase
+docker exec -it hbase /bin/bash
+hbase shell
 ```
 
 7. 服务编排
