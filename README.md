@@ -239,4 +239,19 @@ mvn package docker:build
 ```
 
 * AI开发（ai环境搭建复杂，依赖多，不同版本的差异大，如tenserflow，pytorch）
+```
+RUN pip install numpy==1.14.5
+RUN pip install mxnet-cu90==1.4.1
+RUN pip install tensorflow-gpu==1.12.0
+RUN pip install easydict==1.7
+RUN pip install opencv-python==3.4.0.12
+RUN pip install -I Pillow==6.0.0
+RUN pip install torchvision==0.2.1
+RUN pip install -I torch==0.4.1
+
+RUN pip install configparser
+RUN pip install requests
+RUN pip install Flask
+RUN pip install flask-cors
+```
 
