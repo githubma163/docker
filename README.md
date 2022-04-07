@@ -6,6 +6,10 @@ Docker是一个开源的应用容器引擎，让开发者可以打包他们的�
 * Docker Daemon守护进程
 * Docker Image镜像
 * Docker Container容器
+* Repository 仓库
+
+![docker](https://www.runoob.com/wp-content/uploads/2016/04/576507-docker1.png)
+
 
 2. docker与虚拟机的区别
 * 虚拟机(VMware)在宿主机器、宿主机器操作系统的基础上创建虚拟层、虚拟化的操作系统、虚拟化的仓库，然后再安装应用
@@ -305,7 +309,7 @@ docker run -p 8080:8080 -d ma/node-web-app
 curl http://localhost:8080
 ```
 
-* 应用部署（java web）
+* 应用自动化部署，持续集成（java web）
 ```
 springboot docker部署
 1.添加docker构建plugin
