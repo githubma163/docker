@@ -227,6 +227,13 @@ EXPOSE 8080
 CMD [ "node", "server.js" ]
 ```
 
+```
+执行如下命令
+docker build -t ma/node-web-app
+docker run -p 8080:8080 -d ma/node-web-app
+curl http://localhost:8080
+```
+
 * 应用部署（java web）
 ```
 springboot docker部署
