@@ -251,7 +251,7 @@ springboot docker部署
             <artifactId>docker-maven-plugin</artifactId>
             <version>1.0.0</version>
             <configuration>
-                <imageName>ffmpeg-test/${project.artifactId}</imageName>
+                <imageName>springboot/${project.artifactId}</imageName>
                 <dockerDirectory>src/main/docker</dockerDirectory>
                 <resources>
                     <resource>
