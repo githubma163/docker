@@ -258,6 +258,57 @@ Kubernetes 旨在跨群集运行，而 Docker 在单个节点上运行
 ```
 
 * mesosphere的Mesos + Marathon
+```
+1.安装zookeeper，通过8080端口可以查看zookeeper信息
+docker run --name zookeeper --restart always -d -p 2181:2181 -p 8080:8080 zookeeper
+
+2.安装mesos master,需要替换里面的ip
+docker run --name mesos-master -d -p 5050:5050 \
+  --hostname=mesos-master \
+  -e MESOS_PORT=5050 \
+  -e MESOS_ZK=zk://10.128.247.199:2181/mesos \
+  -e MESOS_QUORUM=1 \
+  -e MESOS_REGISTRY=in_memory \
+  -e MESOS_LOG_DIR=/var/log/mesos \
+  -e MESOS_WORK_DIR=/var/tmp/mesos \
+  -v "$(pwd)/log/mesos:/var/log/mesos" \
+  -v "$(pwd)/tmp/mesos:/var/tmp/mesos" \
+  mesosphere/mesos-master:1.6.2
+  
+  http://10.128.247.199:5050/
+  
+  windows机器上访问时需要添加host配置
+  10.128.247.199 mesos-master
+  
+3.安装msos slave  
+  docker run --name mesos-slave -d -p 5051:5051 --privileged \
+  --hostname=mesos-slave \
+  -e MESOS_PORT=5051 \
+  -e MESOS_MASTER=zk://10.128.247.199:2181/mesos \
+  -e MESOS_SWITCH_USER=0 \
+  -e MESOS_CONTAINERIZERS=docker,mesos \
+  -e MESOS_LOG_DIR=/var/log/mesos \
+  -e MESOS_WORK_DIR=/var/tmp/mesos \
+  -v "$(pwd)/log/mesos:/var/log/mesos" \
+  -v "$(pwd)/tmp/mesos:/var/tmp/mesos" \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v /usr/bin/docker:/usr/bin/docker \
+  mesosphere/mesos-slave:1.6.2 --no-systemd_enable_support
+  
+  windows机器上访问时需要添加host配置
+  10.128.247.199 mesos-slave
+  
+4.安装marathon
+docker run --name marathon -p 8081:8080 mesosphere/marathon:v1.11.18 --master zk://10.128.247.199:2181/mesos --zk zk://10.128.247.199:2181/marathon
+
+while (true)
+do
+    echo 'hello world'
+	sleep 3
+done
+
+http://10.128.247.199:8081/
+```
 
 9. docker应用
 * 本地快速搭建软件或开发环境
