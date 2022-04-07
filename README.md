@@ -238,7 +238,7 @@ ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","./hello.jar
 mvn package docker:build
 ```
 
-* AI开发（ai环境搭建复杂，依赖多，不同版本的差异大，如tenserflow，pytorch）
+* AI开发（ai环境搭建复杂，依赖多，不同版本的差异大，如tensorflow，pytorch）
 ```
 RUN pip install numpy==1.14.5
 RUN pip install mxnet-cu90==1.4.1
