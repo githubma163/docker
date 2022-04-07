@@ -68,14 +68,32 @@ docker logout
 
 ![docker](https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg-blog.csdnimg.cn%2F20191210150243559.png%3Fx-oss-process%3Dimage%2Fwatermark%2Ctype_ZmFuZ3poZW5naGVpdGk%2Cshadow_10%2Ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hlaWFuXzk5%2Csize_16%2Ccolor_FFFFFF%2Ct_70&refer=http%3A%2F%2Fimg-blog.csdnimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1651836245&t=42fcbed208a61b42f5e9509bdaecc764)
 
+5. Dockerfile
 
-5. docker技术原理
+每一个指令都会在镜像上创建一个新的层，每一个指令的前缀都必须是大写的。
+
+Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。
+```
+FROM    centos:6.7
+MAINTAINER      Fisher "fisher@sudops.com"
+
+RUN     /bin/echo 'root:123456' |chpasswd
+RUN     useradd runoob
+RUN     /bin/echo 'runoob:123456' |chpasswd
+RUN     /bin/echo -e "LANG=\"en_US.UTF-8\"" >/etc/default/local
+EXPOSE  22
+EXPOSE  80
+CMD     /usr/sbin/sshd -D
+ENTRYPOINT 
+```
+
+6. docker技术原理
 * Linux NameSpace Linux Namespace是Linux提供的一种内核级别环境隔离的方法
 * Linux CGroup Linux CGroup全称Linux Control Group， 是Linux内核的一个功能，用来限制，控制与分离一个进程组群的资源（如CPU、内存、磁盘输入输出等）
 * rootfs 在镜像中构造了一整套的操作系统根目录下的内容,这些会被挂载在容器根目录上, 为容器进程提供隔离后执行环境的文件系统,这个被称为根文件系统rootfs
 
 
-6. 常用docker镜像
+7. 常用docker镜像
 ```
 docker run hello-world
 ```
@@ -110,7 +128,7 @@ docker exec -it hbase /bin/bash
 hbase shell
 ```
 
-7. 服务编排
+8. 服务编排
 * Docker公司Compose + Swarm
 
 docker compose 安装
@@ -147,7 +165,7 @@ services:
 * Google + RedHat的Kubernetes
 * mesosphere的Mesos + Marathon
 
-8. docker应用
+9. docker应用
 * 本地快速搭建软件或开发环境
 
 nodejs环境，创建如下3个文件，分别是server.js,package.json,Dockerfile
