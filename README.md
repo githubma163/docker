@@ -272,6 +272,8 @@ EXPOSE 8080
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","./hello.jar"]
 3.打包
 mvn package docker:build
+docker images
+docker run -itd --name hello -p 8088:8080 springboot/hello
 ```
 
 * AI开发（ai环境搭建复杂，依赖多，不同版本的差异大，如tensorflow，pytorch）
