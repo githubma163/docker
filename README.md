@@ -101,7 +101,7 @@ ENTRYPOINT
 * Linux CGroup Linux CGroup全称Linux Control Group， 是Linux内核的一个功能，用来限制，控制与分离一个进程组群的资源（如CPU、内存、磁盘输入输出等）
 * rootfs 在镜像中构造了一整套的操作系统根目录下的内容,这些会被挂载在容器根目录上, 为容器进程提供隔离后执行环境的文件系统,这个被称为根文件系统rootfs
 
-![docker](https://cn.bing.com/images/search?view=detailV2&ccid=1%2f9gWDgB&id=16EAE73BE69B4DA4D28BF68E41B1F9AF551C753F&thid=OIP.1_9gWDgBf08tFvWqoXmyEwHaDv&mediaurl=https%3a%2f%2fpic4.zhimg.com%2fv2-d7ff605838017f4f2d16f5aaa179b213_r.jpg&exph=546&expw=1080&q=docker+namespace+cgroup&simid=607987552011306839&FORM=IRPRST&ck=53172C6051A2933E1C72BD4FC3FED2DA&selectedIndex=0)
+![docker](https://pic4.zhimg.com/v2-d7ff605838017f4f2d16f5aaa179b213_r.jpg)
 
 
 7. 常用docker镜像
