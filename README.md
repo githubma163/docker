@@ -28,7 +28,7 @@ systemctl start docker
 docker version
 systemctl start docker
 ```
-* 安装完成后需要配置阿里云镜像地址,linux上的操作如下
+* 安装完成后需要配置阿里云镜像地址,mac上操作参考https://blog.csdn.net/weixin_42085428/article/details/107809804 ，linux上的操作如下
 ```
 vi /etc/docker/daemon.json
 {
