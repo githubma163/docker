@@ -131,6 +131,8 @@ hbase shell
 8. 服务编排
 * Docker公司Compose + Swarm
 
+Docker Compose可以轻松、高效的管理容器，它是一个用于定义和运行多容器Docker的应用程序工具
+
 docker compose 安装
 ```
 curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
