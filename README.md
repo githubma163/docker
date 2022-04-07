@@ -172,7 +172,68 @@ services:
       - "5601:5601"
 ```
 
-* Google + RedHat的Kubernetes
+* Google的Kubernetes
+
+Kubernetes(k8s)是一个开源的，用于管理云平台中多个主机上的容器化的应用，Kubernetes的目标是让部署容器化的应用简单并且高效（powerful）,Kubernetes提供了应用部署，规划，更新，维护的一种机制。https://www.kubernetes.org.cn/k8s
+
+Kubernetes 组件
+Kubernetes Master组件
+```
+1.Master组件 Master 组件可以在集群中的任何节点上运行
+包含3个进程，kube-apiserver、kube-controller-manager 和 kube-scheduler。
+2.API服务器 kube-apiserver对外暴露了Kubernetes API。它是的 Kubernetes 前端控制层
+3.etcd etcd 用于 Kubernetes 的后端存储
+4.kube-controller-manager kube-controller-manager运行控制器，它们是处理集群中常规任务的后台线程
+（1）节点控制器
+（2）副本控制器
+（3）端点控制器
+（4）服务账户和令牌服务器
+5.云控制器管理器-(cloud-controller-manager) 云控制器管理器是用于与底层云提供商交互的控制器。云控制器管理器二进制是 Kubernetes v1.6 版本中引入的 Alpha 功能。
+（1）节点控制器
+（2）路由控制器
+（3）服务控制器
+（4）数据卷控制器
+6.调度器 kube-scheduler
+（1）kube-scheduler监视没有分配节点的新创建的 Pod，选择一个节点供他们运行
+7.插件(addons)
+插件是实现集群功能的 Pod 和 Service
+8.DNS
+但所有 Kubernetes 集群都应该具有Cluster DNS
+9.Web UI (Dashboard)
+10.容器资源监控
+11.集群层面日志
+```
+
+Kubernetes Node组件
+```
+1.kubelet
+kubelet是主要的节点代理,它监测已分配给其节点的 Pod(通过 apiserver 或通过本地配置文件)
+2.kube-proxy
+3.docker
+4.rkt
+5.supervisord
+supervisord 是一个轻量级的进程监控系统，可以用来保证 kubelet 和 docker 运行
+6.fluentd
+fluentd 是一个守护进程，它有助于提供集群层面日志 集群层面的日志。
+```
+
+Kubernetes 对象
+```
+1.基本对象
+(1)Pod
+(2)Service
+(3)Volume
+(4)Namespace
+2.高层对象
+(1)ReplicaSet
+(2)Deployment
+(3)StatefulSet
+(4)DaemonSet
+(5)Job
+```
+
+Kubernetes 集群管理 https://docs.rancher.cn/
+
 * mesosphere的Mesos + Marathon
 
 9. docker应用
