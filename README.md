@@ -82,7 +82,7 @@ docker logout
 
 5. Dockerfile
 
-Dockerfile是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。
+Dockerfile是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。https://www.runoob.com/docker/docker-dockerfile.html
 
 每一个指令都会在镜像上创建一个新的层，每一个指令的前缀都必须是大写的。
 
