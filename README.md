@@ -238,26 +238,37 @@ curl http://localhost:8080
 ```
 springboot docker部署
 1.添加docker构建plugin
-<plugin>
-    <groupId>com.spotify</groupId>
-    <artifactId>docker-maven-plugin</artifactId>
-    <version>1.0.0</version>
-    <configuration>
-        <imageName>ffmpeg-test/${project.artifactId}</imageName>
-        <dockerDirectory>src/main/docker</dockerDirectory>
-        <resources>
-            <resource>
-                <targetPath>/</targetPath>
-                <directory>${project.build.directory}</directory>
-                <include>${project.build.finalName}.jar</include>
-            </resource>
-        </resources>
-    </configuration>
-</plugin>
+<build>
+    <finalName>hello</finalName>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <version>2.0.5.RELEASE</version>
+        </plugin>
+        <plugin>
+            <groupId>com.spotify</groupId>
+            <artifactId>docker-maven-plugin</artifactId>
+            <version>1.0.0</version>
+            <configuration>
+                <imageName>ffmpeg-test/${project.artifactId}</imageName>
+                <dockerDirectory>src/main/docker</dockerDirectory>
+                <resources>
+                    <resource>
+                        <targetPath>/</targetPath>
+                        <directory>${project.build.directory}</directory>
+                        <include>${project.build.finalName}.jar</include>
+                    </resource>
+                </resources>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
 2.创建src/main/docker目录，添加Dockerfile文件，文件内容如下
 FROM java:8
 ADD hello.jar .
 RUN ls -a
+EXPOSE 8080
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","./hello.jar"]
 3.打包
 mvn package docker:build
