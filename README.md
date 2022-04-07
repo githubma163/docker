@@ -55,6 +55,7 @@ docker ps -a
 docker rm 5c91
 docker rmi 5c91
 
+docker run
 docker exec -it d245 /bin/bash
 
 docker container ls
