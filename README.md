@@ -210,5 +210,33 @@ CMD [ "node", "server.js" ]
 ```
 
 * 应用部署（java web）
+```
+springboot docker部署
+1.添加docker构建plugin
+<plugin>
+    <groupId>com.spotify</groupId>
+    <artifactId>docker-maven-plugin</artifactId>
+    <version>1.0.0</version>
+    <configuration>
+        <imageName>ffmpeg-test/${project.artifactId}</imageName>
+        <dockerDirectory>src/main/docker</dockerDirectory>
+        <resources>
+            <resource>
+                <targetPath>/</targetPath>
+                <directory>${project.build.directory}</directory>
+                <include>${project.build.finalName}.jar</include>
+            </resource>
+        </resources>
+    </configuration>
+</plugin>
+2.创建src/main/docker目录，添加Dockerfile文件，文件内容如下
+FROM java:8
+ADD hello.jar .
+RUN ls -a
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","./hello.jar"]
+3.打包
+mvn package docker:build
+```
+
 * AI开发（ai环境搭建复杂，依赖多，不同版本的差异大，如tenserflow，pytorch）
 
