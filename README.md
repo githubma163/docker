@@ -147,4 +147,8 @@ services:
 * Google + RedHat的Kubernetes
 * mesosphere的Mesos + Marathon
 
+8. docker应用
+* 本地快速搭建软件或开发环境
+* 应用部署（java web）
+* AI开发（ai环境搭建复杂，依赖多，不同版本的差异大，如tenserflow，pytorch）
 
