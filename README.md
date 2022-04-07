@@ -250,6 +250,13 @@ Kubernetes 对象
 
 Kubernetes 集群管理 https://docs.rancher.cn/
 
+docker 与k8s区别
+```
+docker是一种容器技术
+k8s是一种服务编排技术，k8s应该和docker swarm或apache mesos来对比，Kubernetes 的功能比 Docker Swarm 的功能更全面，可有效地在生产中大规模协调节点的群集
+Kubernetes 旨在跨群集运行，而 Docker 在单个节点上运行
+```
+
 * mesosphere的Mesos + Marathon
 
 9. docker应用
