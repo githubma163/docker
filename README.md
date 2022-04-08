@@ -13,7 +13,7 @@ Docker是C/S架构设计。
 * Docker Daemon守护进程
 * Docker Image镜像
 * Docker Container容器
-* Repository 镜像仓库 blog.csdn.net/rickiyeat/article/details/74509737  https://www.jianshu.com/p/5b499ee4d5af
+* Repository 镜像仓库 https://blog.csdn.net/rickiyeat/article/details/74509737  https://www.jianshu.com/p/5b499ee4d5af
 * Registry 注册服务器 https://blog.csdn.net/Andriy_dangli/article/details/84381383
 
 
