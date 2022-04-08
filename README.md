@@ -3,6 +3,7 @@
 Docker是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中,然后发布到任何流行的Linux、Windows、Mac操作系统的机器上,也可以实现虚拟化,容器是完全使用沙箱机制,相互之间不会有任何接口。
 
 Docker是PaaS提供商dotCloud开源的一个基于LXC的高级容器引擎，源代码托管在 Github 上, 基于go语言并遵从Apache2.0协议开源。
+
 Docker自2013年以来非常火热，无论是从github上的代码活跃度，还是Redhat在RHEL6.5中集成对Docker的支持, 就连Google的Compute Engine也支持docker在其之上运行。
 
 Docker是C/S架构设计。
