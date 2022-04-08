@@ -152,6 +152,27 @@ docker exec -it hbase /bin/bash
 hbase shell
 ```
 
+```
+prometheus + grafana
+
+docker run --name prometheus -d -p 9090:9090 -v /data/prometheus.yml:/data/prometheus.yml prom/prometheus --config.file=/data/prometheus.yml
+验证prometheus
+http://10.130.136.231:9090
+http://10.130.136.231:9090/targets
+
+docker run -d -p 9100:9100 quay.io/prometheus/node-exporter
+验证node-eporter
+http://10.41.148.15:9100/metrics
+
+docker run -d --name=grafana -p 3000:3000 grafana/grafana
+
+验证grafana
+http://10.130.136.231:3000/
+默认用户名和密码admin/admin，进入后需要修改密码
+
+Node Exporter插件id为11074或者8919
+```
+
 8. 服务编排
 * Docker公司Compose + Swarm
 
